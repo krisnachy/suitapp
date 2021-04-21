@@ -42,6 +42,8 @@ class MainActivity : AppCompatActivity() {
             val result = suit.set(suit.user, suit.randomCom)
             showImage(suit.user, suit.randomCom)
             tvResult.text = suit.result
+            tvUser.text = suit.userScore.toString()
+            tvCom.text = suit.comScore.toString()
         }
 
         btnPaper.setOnClickListener {
@@ -49,6 +51,8 @@ class MainActivity : AppCompatActivity() {
             val result = suit.set(suit.user, suit.randomCom)
             showImage(suit.user, suit.randomCom)
             tvResult.text = suit.result
+            tvUser.text = suit.userScore.toString()
+            tvCom.text = suit.comScore.toString()
         }
 
         btnScissor.setOnClickListener {
@@ -56,11 +60,16 @@ class MainActivity : AppCompatActivity() {
             val result = suit.set(suit.user, suit.randomCom)
             showImage(suit.user, suit.randomCom)
             tvResult.text = suit.result
+            tvUser.text = suit.userScore.toString()
+            tvCom.text = suit.comScore.toString()
         }
 
         btnRematch.setOnClickListener {
             ivUser.setImageResource(android.R.color.transparent)
             ivCom.setImageResource(android.R.color.transparent)
+            tvResult.setText(R.string.result)
+            tvUser.setText(R.string.score_user)
+            tvCom.setText(R.string.score_com)
         }
     }
 }
@@ -81,16 +90,34 @@ class Suit(var user : Int) {
         } else {
             when (user) {
                 1 -> {
-                    if (com == 2) result = "LOSE"
-                    if (com == 3) result = "WIN"
+                    if (com == 2) {
+                        comScore += 1
+                        result = "LOSE"
+                    }
+                    if (com == 3) {
+                        userScore += 1
+                        result = "WIN"
+                    }
                 }
                 2 -> {
-                    if (com == 1) result = "WIN"
-                    if (com == 3) result = "LOSE"
+                    if (com == 1) {
+                        userScore += 1
+                        result = "WIN"
+                    }
+                    if (com == 3) {
+                        comScore += 1
+                        result = "LOSE"
+                    }
                 }
                 3 -> {
-                    if (com == 1) result = "LOSE"
-                    if (com == 2) result = "WIN"
+                    if (com == 1) {
+                        comScore += 1
+                        result = "LOSE"
+                    }
+                    if (com == 2) {
+                        userScore += 1
+                        result = "WIN"
+                    }
                 }
             }
         }
