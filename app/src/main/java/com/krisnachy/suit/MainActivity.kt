@@ -37,10 +37,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        fun changeBackground(result : String) {
+            when(result) {
+                "DRAW" -> tvResult.setBackgroundResource(R.drawable.ic_rectangle_draw)
+                "LOSE" -> tvResult.setBackgroundResource(R.drawable.ic_rectangle_lose)
+                "WIN" -> tvResult.setBackgroundResource(R.drawable.ic_rectangle_win)
+            }
+        }
+
         btnRock.setOnClickListener {
             val suit = Suit(1)
-            val result = suit.set(suit.user, suit.randomCom)
+            val score = suit.set(suit.user, suit.randomCom)
             showImage(suit.user, suit.randomCom)
+            changeBackground(suit.result)
             tvResult.text = suit.result
             tvUser.text = suit.userScore.toString()
             tvCom.text = suit.comScore.toString()
@@ -48,8 +57,9 @@ class MainActivity : AppCompatActivity() {
 
         btnPaper.setOnClickListener {
             val suit = Suit(2)
-            val result = suit.set(suit.user, suit.randomCom)
+            val score = suit.set(suit.user, suit.randomCom)
             showImage(suit.user, suit.randomCom)
+            changeBackground(suit.result)
             tvResult.text = suit.result
             tvUser.text = suit.userScore.toString()
             tvCom.text = suit.comScore.toString()
@@ -57,8 +67,9 @@ class MainActivity : AppCompatActivity() {
 
         btnScissor.setOnClickListener {
             val suit = Suit(3)
-            val result = suit.set(suit.user, suit.randomCom)
+            val score = suit.set(suit.user, suit.randomCom)
             showImage(suit.user, suit.randomCom)
+            changeBackground(suit.result)
             tvResult.text = suit.result
             tvUser.text = suit.userScore.toString()
             tvCom.text = suit.comScore.toString()
