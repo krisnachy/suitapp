@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() {
             ivUser.setImageResource(android.R.color.transparent)
             ivCom.setImageResource(android.R.color.transparent)
             tvResult.setText(R.string.result)
+            tvResult.setBackgroundResource(R.drawable.ic_rectangle_result)
             tvUser.setText(R.string.score_user)
             tvCom.setText(R.string.score_com)
         }
