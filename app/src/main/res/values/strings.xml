@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Suit</string>
-    <string name="score">1</string>
+    <string name="score_user">0</string>
+    <string name="score_com">0</string>
     <string name="score_board">Score Board</string>
     <string name="result">Result</string>
 </resources>
