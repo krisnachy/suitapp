@@ -7,189 +7,147 @@
     android:background="@color/dark_gray"
     tools:context=".MainActivity">
 
-    <!--    ScoreBoard-->
+    <!--    Title-->
     <TextView
-        android:id="@+id/score_board"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="24dp"
         android:text="@string/score_board"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--    View Result-->
+    <!--    Result -->
     <TextView
         android:id="@+id/tv_result"
         android:layout_width="200dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_rectangle_result"
         android:text="@string/result"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:background="@drawable/ic_rectangle_result"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/score_board" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <!--    Score-->
-    <LinearLayout
-        android:id="@+id/linear_score"
-        android:layout_width="match_parent"
+    <!--    Scoreboard-->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_user"
+        android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="430dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/toolbar"
-        app:layout_constraintTop_toBottomOf="@id/tv_result">
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_frame_user"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:text="@string/score_user"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_result"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result" />
 
-        <RelativeLayout
-            android:layout_width="90dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_frame_user">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_com"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_frame_com"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:text="@string/score_com"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result" />
 
-            <TextView
-                android:id="@+id/tv_user"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/score_user"
-                android:textSize="30sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginTop="30dp"
-                android:gravity="center"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="90dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/ic_frame_com">
-
-            <TextView
-                android:id="@+id/tv_com"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/score_com"
-                android:textSize="30sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginTop="30dp"
-                android:gravity="center"/>
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <!--    ImageView Computer-->
+    <!--    ImageView Suit-->
     <ImageView
         android:id="@+id/iv_com"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="32dp"
+        android:rotation="180"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear_score"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_user" />
 
-<!--    ImageView User-->
     <ImageView
         android:id="@+id/iv_user"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_com"
-        app:layout_constraintBottom_toTopOf="@id/toolbar"/>
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_com"
+        app:layout_constraintStart_toStartOf="@+id/iv_com"
+        app:layout_constraintTop_toBottomOf="@+id/iv_com" />
 
-    <!--    Button Action-->
+    <!--    Toolbar-->
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/ic_rounded_rectangle"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <RelativeLayout
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/ic_rectangle_orange">
+        <ImageButton
+            android:id="@+id/btn_home"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/ic_rectangle_orange"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_home" />
 
-            <ImageButton
-                android:id="@+id/btn_home"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/ic_baseline_home" />
-        </RelativeLayout>
+        <ImageButton
+            android:id="@+id/btn_rock"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:background="@drawable/ic_rectangle_2"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_rock" />
 
-        <RelativeLayout
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/ic_rectangle_2">
+        <ImageButton
+            android:id="@+id/btn_paper"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/ic_rectangle_2"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_paper" />
 
-            <ImageButton
-                android:id="@+id/btn_rock"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:background="@drawable/ic_rock" />
-        </RelativeLayout>
+        <ImageButton
+            android:id="@+id/btn_scissor"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/ic_rectangle_2"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_scissors" />
 
-        <RelativeLayout
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/ic_rectangle_2">
-
-            <ImageButton
-                android:id="@+id/btn_paper"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:background="@drawable/ic_paper" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/ic_rectangle_2">
-
-            <ImageButton
-                android:id="@+id/btn_scissor"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:background="@drawable/ic_scissors" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/ic_rectangle_green">
-
-            <ImageButton
-                android:id="@+id/btn_rematch"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:background="@drawable/ic_replay_arrows" />
-        </RelativeLayout>
+        <ImageButton
+            android:id="@+id/btn_rematch"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:background="@drawable/ic_rectangle_green"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_replay_arrows" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

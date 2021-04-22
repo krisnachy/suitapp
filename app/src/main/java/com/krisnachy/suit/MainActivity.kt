@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -16,8 +17,8 @@ class MainActivity : AppCompatActivity() {
         val ivUser = findViewById<ImageView>(R.id.iv_user)
         val ivCom = findViewById<ImageView>(R.id.iv_com)
         val tvResult = findViewById<TextView>(R.id.tv_result)
-        val tvUser = findViewById<TextView>(R.id.tv_user)
-        val tvCom = findViewById<TextView>(R.id.tv_com)
+        val tvUser = findViewById<AppCompatTextView>(R.id.tv_user)
+        val tvCom = findViewById<AppCompatTextView>(R.id.tv_com)
         val btnRock = findViewById<ImageButton>(R.id.btn_rock)
         val btnPaper = findViewById<ImageButton>(R.id.btn_paper)
         val btnScissor = findViewById<ImageButton>(R.id.btn_scissor)
